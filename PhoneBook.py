@@ -37,6 +37,12 @@ while True:
         else:
             print("Вы ввели неправильный номер")
             continue
+    elif choice == 5:
+        with open("phonebook.csv", "w") as file:
+            value = phone_book[tel]
+            temp = tel + ": "
+            value[0] + " " + value[1] + " " + value[2] + ", " + value[3]
+            file.write(temp)
     elif choice == 0:
         print("До свидания")
         break
