@@ -5,7 +5,7 @@
 # last_name - фамилия, строка
 # patronymic - отчество, строка
 # address - адрес, строка
-# {tel: [last_name, first_name, patronymic, addre
+# {tel: [last_name, first_name, patronymic, address]}
 
 from phonebook_lib import *
 
@@ -18,7 +18,7 @@ while True:
     choice = int(input("Введите режим работы: "))
 
     if choice == 1:
-        print(phone_book)
+        show(phone_book)
     elif choice == 2:
         tel = input("Введите номер телефона: ")
         if tel in phone_book:
@@ -38,20 +38,14 @@ while True:
             print("Вы ввели неправильный номер")
             continue
     elif choice == 5:
-        with open("phonebook.csv", "w") as file:
-            value = phone_book[tel]
-            temp = tel + ": "
-            value[0] + " " + value[1] + " " + value[2] + ", " + value[3]
-            file.write(temp)
+        with open("PhoneBook.csv", "w") as file:
+            for tel in phone_book:
+                value = phone_book[tel]
+                temp = tel + ";" + value[0] + ";" + value[1] + ";" + value[2] + ";" + value[3] + "\n"
+                file.write(temp)
     elif choice == 0:
         print("До свидания")
         break
     else:
         print("Неправильный режим")
         continue
-tel = input("Введите номер телефона: ")
-value = input_data()
-
-phone_book[tel] = value
-
-print(phone_book)
