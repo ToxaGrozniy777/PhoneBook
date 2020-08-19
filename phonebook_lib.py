@@ -8,6 +8,7 @@
 # address - адрес, строка
 # {tel: [last_name, first_name, patronymic, address]}
 
+
 import datetime
 import os
 
@@ -57,6 +58,7 @@ def menu():
     print("3. Редактировать запись")
     print("4. Удалить запись")
     print("5. Сохранить в файл")
+    print("6. Очищение всего справочника")
     print("0. Выход")
 
 
@@ -74,13 +76,16 @@ def input_data():
 
 
 def show(phone_book):
-    print("--- Телефонный справочник ---")
-    for tel in phone_book:
-        value = phone_book[tel]
-        temp = value[0] + " " + value[1] + " " + value[2] + ", " + value[3]
-        print(tel, ':', temp)
-    print("--- --- ---")
-    log("Вывод справочника на экран")
+    if len(phone_book) == 0:
+        print("# Телефонный справочник пуст #")
+    else:
+        print("--- Телефонный справочник ---")
+        for tel in phone_book:
+            value = phone_book[tel]
+            temp = value[0] + " " + value[1] + " " + value[2] + ", " + value[3]
+            print(tel, ':', temp)
+        print("--- --- ---")
+        log("Вывод справочника на экран")
 
 
 def input_record(phone_book):
