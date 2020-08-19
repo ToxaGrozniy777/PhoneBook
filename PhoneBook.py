@@ -12,6 +12,7 @@ from phonebook_lib import *
 phone_book = dict()
 
 welcome()  # Ввод приветствия программы
+import_from_file(phone_book)
 
 while True:
     menu()  # Вывод пунктов меню
